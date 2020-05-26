@@ -1,0 +1,16 @@
+{
+  "extends": ["tslint:recommended"],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**"
+    ]
+  },
+  "defaultSeverity": "error",
+  "rules": {
+    "jsdoc-format": false,
+    "no-bitwise": false,
+    "quotemark": [true, "double", "avoid-escape", "avoid-template"],
+    "typedef": [true, "call-signature", "parameter", "member-variable-declaration"],
+    "no-unused-expression": [true, "allow-fast-null-checks"]
+  }
+}
