@@ -1,5 +1,6 @@
 import { App, BrowserWindow, Screen, GlobalShortcut } from "electron";
 import path from "path";
+import Configuration from "./configuration/Configuration";
 
 class Startup {
     public static application: App;
@@ -7,13 +8,17 @@ class Startup {
     public static globalShortcut: GlobalShortcut;
     public static window: BrowserWindow;
 
+    public static configuration: Configuration;
+
     public static run(application: App,
                       screen: Screen,
-                      globalShortcut: GlobalShortcut): void {
+                      globalShortcut: GlobalShortcut,
+                      configuration: Configuration): void {
 
         this.application = application;
         this.screen = screen;
         this.globalShortcut = globalShortcut;
+        this.configuration = configuration;
 
         if(!this.application.requestSingleInstanceLock()) {
             this.application.quit();
