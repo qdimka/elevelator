@@ -1,6 +1,8 @@
 import { App, BrowserWindow, Screen, GlobalShortcut } from "electron";
 import path from "path";
 import Configuration from "./configuration/Configuration";
+import {ipcMain} from "electron";
+import ElectronStorage from "./persistense/ElectronStorage";
 
 class Startup {
     public static application: App;
@@ -9,6 +11,7 @@ class Startup {
     public static window: BrowserWindow;
 
     public static configuration: Configuration;
+    public static store: ElectronStorage;
 
     public static run(application: App,
                       screen: Screen,
@@ -19,6 +22,7 @@ class Startup {
         this.screen = screen;
         this.globalShortcut = globalShortcut;
         this.configuration = configuration;
+        this.store = new ElectronStorage();
 
         if(!this.application.requestSingleInstanceLock()) {
             this.application.quit();
@@ -45,6 +49,7 @@ class Startup {
 
     private static async onReady(): Promise<void> {
         this.registerShortcuts();
+        this.registerIpc();
 
         this.window = new BrowserWindow({
             webPreferences: {
@@ -55,6 +60,12 @@ class Startup {
         await this.window.loadURL(!this.application.isPackaged
             ? "http://localhost:8080"
             :`file://${path.join(__dirname,"../static/index.html")}`);
+    }
+
+    private static registerIpc(): void {
+        ipcMain.handle("connection_history", async () => {
+            return await this.store.get("connection_history")
+        })
     }
 
     private static onWindowAllClosed(): void {
