@@ -22,6 +22,7 @@
   "dependencies": {
     "@types/nconf": "^0.10.0",
     "@types/node": "^13.13.5",
+    "antd": "^4.2.5",
     "babel-loader": "8.1.0",
     "babel-plugin-named-asset-import": "^0.3.6",
     "babel-preset-react-app": "^9.1.2",
@@ -43,6 +44,8 @@
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-saga": "^1.1.3",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
     "semver": "6.3.0",
     "typescript": "^3.8.3",
     "webpack": "^4.43.0",

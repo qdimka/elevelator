@@ -1,0 +1,11 @@
+.title {
+    align-items: center;
+}
+
+.title_logo {
+    font-size: 24px;
+}
+
+.title_platform {
+    color: lightslategray;
+}

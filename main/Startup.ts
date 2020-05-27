@@ -37,18 +37,7 @@ class Startup {
         this.application.on("will-quit", this.onWillQuit.bind(this));
     }
 
-    private static registerShortcuts(): void {
-        this.globalShortcut.register("CommandOrControl+C", () => {
-            this.application.quit();
-        })
-    }
-
-    private static unregisterShortcuts(): void {
-        this.globalShortcut.unregisterAll();
-    }
-
     private static async onReady(): Promise<void> {
-        this.registerShortcuts();
         this.registerIpc();
 
         this.window = new BrowserWindow({
@@ -74,7 +63,7 @@ class Startup {
     }
 
     private static onWillQuit(): void {
-        this.unregisterShortcuts();
+        // todo
     }
 }
 

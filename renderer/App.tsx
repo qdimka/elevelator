@@ -1,5 +1,6 @@
 import React from "react";
-import "./App.global.css";
+import "antd/dist/antd.css";
+import "./App.css";
 import {WelcomeContainer} from "./modules/welcome/Container";
 
 const App = () => (

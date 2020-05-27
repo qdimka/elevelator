@@ -10,7 +10,7 @@ const common = {
         filename: '[name].bundle.js'
     },
     resolve: {
-        extensions: [ '.tsx', '.ts', '.js' ],
+        extensions: [ '.tsx', '.ts', '.js' , '.css'],
     },
     module: {
         rules: [
@@ -29,11 +29,11 @@ const common = {
                             importLoaders: 1,
                             sourceMap: true,
                             modules:{
-                                localIdentName: "[name]_[local]_[hash:base64]"
+                               auto: true
                             }
                         }
                     }
-                ],
+                ]
             },
         ],
     }
