@@ -1,9 +1,11 @@
 import * as React from "react";
-import {Button, Layout} from "antd";
+import {Button, Layout, Space} from "antd";
 import Sidebar from "./components/sidebar/Sidebar";
 import Title from "./components/title/Title";
 // @ts-ignore
 import styles from "./View.module.css";
+
+const {Content} = Layout;
 
 interface WelcomeViewProps {
     requestHistory: () => void,
@@ -20,10 +22,12 @@ class WelcomeView extends React.Component<WelcomeViewProps> {
             <Layout style={{height: "100vh"}}>
                 { this.props.history && <Sidebar mode="light" items={this.props.history}/> }
                 <Layout>
-                    <Layout.Content className={styles.content}>
-                        <Title/>
-                        <Button type="primary">Open database</Button>
-                    </Layout.Content>
+                    <Content className={styles.content}>
+                        <Space direction="vertical" align="center" size={36}>
+                            <Title title="ELEVELATOR"/>
+                            <Button type="primary">Open database</Button>
+                        </Space>
+                    </Content>
                 </Layout>
             </Layout>
         )

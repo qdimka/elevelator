@@ -1,9 +1,12 @@
 .title {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 .title_logo {
     font-size: 24px;
+    font-weight: 600;
 }
 
 .title_platform {

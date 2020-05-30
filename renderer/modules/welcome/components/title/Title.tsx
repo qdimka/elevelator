@@ -1,16 +1,17 @@
 import React from "react";
 // @ts-ignore
 import styles from "./Title.module.css";
-import {Col, Row} from "antd";
+import {Col, Row, Space} from "antd";
 
-const Title = () => (
+interface ITitleProps {
+    logo?: string
+    title: string;
+}
+
+const Title = (props: ITitleProps) => (
     <div className={styles.title}>
-        <Row>
-            <Col span={12} offset={6}><div className={styles.title_logo}>ELEVELATOR</div></Col>
-        </Row>
-        <Row>
-            <Col span={12} offset={6}><div className={styles.title_platform}>{process.platform}-{process.arch}</div></Col>
-        </Row>
+        <div className={styles.title_logo}>{props.title}</div>
+        <div className={styles.title_platform}>{process.platform}-{process.arch}</div>
     </div>
 );
 
