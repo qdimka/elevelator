@@ -27,7 +27,7 @@
     "babel-loader": "8.1.0",
     "babel-plugin-named-asset-import": "^0.3.6",
     "babel-preset-react-app": "^9.1.2",
-    "electron": "^9.0.0",
+    "electron": "^9.3.0",
     "electron-devtools-installer": "^3.0.0",
     "electron-log": "^4.2.0",
     "electron-store": "^5.1.1",
